@@ -4,7 +4,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 50px 100px minmax(200px, 1fr) minmax(400px, 2fr) 100px;
+    grid-template-rows: 50px 100px minmax(200px, 1fr) minmax(400px, 1fr) 100px;
     grid-template-areas: "header" "todo" "ev" "main" "footer";
     grid-gap: 50px;
     font-family: 'Roboto', sans-serif;
@@ -27,6 +27,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "title notification";
+    border-bottom: 2px solid black;
 }
 
 header h3 {
@@ -48,6 +49,17 @@ header section {
     justify-content: space-between;
 }
 
+.listTodo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.listTodo ul {
+    list-style: none;
+}
+
 .todo h3 {
     grid-area: h;
     margin: 0;
@@ -62,11 +74,25 @@ header section {
     grid-template-areas: "erasmus erasmus" "extra extra" "intern intern";
 }
 
+.events h3 {
+    text-align: center;
+    padding: 20px;
+}
+
+.events a {
+    color: white;
+}
+
+.events p {
+    text-align: center;
+    padding: 20px;
+}
+
 .erasmus {
     grid-area: erasmus;
     border-radius: 20px;
     color: white;
-    background-image: url("img/erasmus.png");
+    background-image: url("img/erasmus.jpg");
     background-size: cover;
 }
 
@@ -90,7 +116,7 @@ main {
     grid-area: main;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 20px;
     grid-template-rows: auto;
 }
 
@@ -98,7 +124,7 @@ main section {
     display: grid;
     grid-template-rows: 1fr 2fr;
     border-radius: 10px;
-    border: 5px solid black;
+    border: 2px solid black;
     grid-template-areas: "subject" "art";
 }
 
@@ -106,11 +132,15 @@ main h3 {
     grid-area: subject;
 }
 
+main h3 {
+    text-align: center;
+}
+
 main article {
     grid-area: art;
     background-image: url("img/math.jpg");
     background-size: cover;
-    border: 5px solid black;
+    border: 2px solid black;
     border-radius: 10px;
 }
 
@@ -155,5 +185,9 @@ header img {
 @media(min-width:720px) {
     .events {
         grid-template-areas: "erasmus  extra" "erasmus extra" "erasmus intern";
+    }
+    .erasmus p {
+        padding-top: 200px;
+        padding-right: 300px;
     }
 }
